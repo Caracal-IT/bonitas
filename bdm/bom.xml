@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<businessObjectModel xmlns="http://documentation.bonitasoft.com/bdm-xml-schema/1.0" modelVersion="1.0" productVersion="7.15.0">
+    <businessObjects>
+        <businessObject qualifiedName="com.caracal.model.LeaveRequest">
+            <description>The model for a leave reuest.</description>
+            <fields>
+                <field type="STRING" length="255" name="requestor" nullable="true" collection="false">
+                    <description>The employee that requested the leave.</description>
+                </field>
+                <field type="STRING" length="255" name="description" nullable="true" collection="false">
+                    <description>The description of the leave to be taken.</description>
+                </field>
+                <field type="LOCALDATE" length="255" name="startDate" nullable="true" collection="false">
+                    <description>The date the leave starts.</description>
+                </field>
+                <field type="LOCALDATE" length="255" name="endDate" nullable="true" collection="false">
+                    <description>The last day of the leave.</description>
+                </field>
+                <field type="BOOLEAN" length="255" name="isComplete" nullable="true" collection="false">
+                    <description>The flag that specify that the information provided is complete.</description>
+                </field>
+                <field type="BOOLEAN" length="255" name="isApproved" nullable="true" collection="false">
+                    <description>The flag that specify that the leave is approved.</description>
+                </field>
+            </fields>
+            <uniqueConstraints/>
+            <queries/>
+            <indexes/>
+        </businessObject>
+    </businessObjects>
+</businessObjectModel>
