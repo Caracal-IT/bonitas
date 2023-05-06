@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <organization:Organization xmlns:organization="http://documentation.bonitasoft.com/organization-xml-schema/1.1" name="Caracal Camel" description="The labs to test new technologies.">
   <customUserInfoDefinitions/>
-  <users/>
+  <users>
+    <user userName="kate">
+      <firstName>Kate</firstName>
+      <lastName>Gaunaris</lastName>
+      <title>Miss</title>
+      <jobTitle>Product Manager</jobTitle>
+      <manager></manager>
+      <personalData/>
+      <professionalData>
+        <email>ettienemare@gmail.com</email>
+      </professionalData>
+      <password encrypted="false">Password@001</password>
+      <customUserInfoValues/>
+    </user>
+    <user userName="ettiene">
+      <firstName>Ettiene</firstName>
+      <lastName>Mare</lastName>
+      <title>Mr</title>
+      <jobTitle>Senior Developer</jobTitle>
+      <manager>kate</manager>
+      <personalData/>
+      <professionalData>
+        <email>ettienemare@gmail.com</email>
+      </professionalData>
+      <password encrypted="false">Password@001</password>
+      <customUserInfoValues/>
+    </user>
+  </users>
   <roles>
     <role name="Employee">
       <displayName>Employee</displayName>
@@ -30,5 +57,18 @@
       <description>The cloud technology research team.</description>
     </group>
   </groups>
-  <memberships/>
+  <memberships>
+    <membership>
+      <userName>kate</userName>
+      <roleName>Manager</roleName>
+      <groupName>Cloud</groupName>
+      <groupParentPath>/Caracal_Camel/Labs/Software</groupParentPath>
+    </membership>
+    <membership>
+      <userName>ettiene</userName>
+      <roleName>Employee</roleName>
+      <groupName>Cloud</groupName>
+      <groupParentPath>/Caracal_Camel/Labs/Software</groupParentPath>
+    </membership>
+  </memberships>
 </organization:Organization>
