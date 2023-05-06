@@ -8,8 +8,8 @@
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_ZsBDNOxIEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_ZsBDNexIEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:Task" xmi:id="_ZsBDNuxIEe2f3IEotPlwpA" name="Initiate Leave Request" outgoing="_GjqAUOxKEe2f3IEotPlwpA" incoming="_ZsBDR-xIEe2f3IEotPlwpA" overrideActorsOfTheLane="false">
-          <dynamicLabel xmi:type="expression:Expression" xmi:id="_ZsBDN-xIEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
+        <elements xmi:type="process:Task" xmi:id="_ZsBDNuxIEe2f3IEotPlwpA" name="Request Leave" outgoing="_GjqAUOxKEe2f3IEotPlwpA" incoming="_ZsBDR-xIEe2f3IEotPlwpA" overrideActorsOfTheLane="false">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_ZsBDN-xIEe2f3IEotPlwpA" name="Request Leave" content="Request Leave" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_ZsBDOOxIEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_ZsBDOexIEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
           <loopCondition xmi:type="expression:Expression" xmi:id="_ZsBDOuxIEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
@@ -61,7 +61,7 @@
       </elements>
       <elements xmi:type="process:Lane" xmi:id="_AuqYUOxJEe2f3IEotPlwpA" name="Manager" actor="_U1EF4OxJEe2f3IEotPlwpA">
         <elements xmi:type="process:Task" xmi:id="_QQ2eYOxKEe2f3IEotPlwpA" name="Accept And Approve" outgoing="_XPZk4OxKEe2f3IEotPlwpA" incoming="_Ie9PYOxKEe2f3IEotPlwpA" overrideActorsOfTheLane="false">
-          <dynamicLabel xmi:type="expression:Expression" xmi:id="_IeMaYOxKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_IeMaYOxKEe2f3IEotPlwpA" name="Accept And Appprove" content="Accept And Appprove" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_IeKlMOxKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_IeNBcOxKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
           <loopCondition xmi:type="expression:Expression" xmi:id="_IeNBcexKEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
@@ -76,9 +76,9 @@
           <expectedDuration xmi:type="expression:Expression" xmi:id="_QQ7W4OxKEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
         <elements xmi:type="process:XORGateway" xmi:id="_X6qvcOxKEe2f3IEotPlwpA" name="Check Completed" outgoing="_ZHiyQOxKEe2f3IEotPlwpA _gtdawOxKEe2f3IEotPlwpA" incoming="_XPZk4OxKEe2f3IEotPlwpA">
-          <dynamicLabel xmi:type="expression:Expression" xmi:id="_XPK7YOxKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
-          <dynamicDescription xmi:type="expression:Expression" xmi:id="_XPKUUOxKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
-          <stepSummary xmi:type="expression:Expression" xmi:id="_XPK7YexKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_XPK7YOxKEe2f3IEotPlwpA" name="Check Completed" content="Check Completed" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_XPKUUOxKEe2f3IEotPlwpA" name="Check Completed" content="Check Completed" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_XPK7YexKEe2f3IEotPlwpA" name="Completed" content="Completed" returnTypeFixed="true"/>
         </elements>
       </elements>
       <data xmi:type="process:BusinessObjectData" xmi:id="_SLOq8OxLEe2f3IEotPlwpA" documentation="The request for approval." name="request" dataType="_ZsBDY-xIEe2f3IEotPlwpA" className="com.caracal.model.LeaveRequest">
@@ -104,7 +104,7 @@
       </connections>
       <connections xmi:type="process:SequenceFlow" xmi:id="_XPZk4OxKEe2f3IEotPlwpA" target="_X6qvcOxKEe2f3IEotPlwpA" source="_QQ2eYOxKEe2f3IEotPlwpA">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_XPaL8OxKEe2f3IEotPlwpA"/>
-        <condition xmi:type="expression:Expression" xmi:id="_XPaL8exKEe2f3IEotPlwpA" name="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+        <condition xmi:type="expression:Expression" xmi:id="_XPaL8exKEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
       </connections>
       <connections xmi:type="process:SequenceFlow" xmi:id="_ZHiyQOxKEe2f3IEotPlwpA" name="notComplete" target="_cGUQgOxKEe2f3IEotPlwpA" source="_X6qvcOxKEe2f3IEotPlwpA">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_ZHiyQexKEe2f3IEotPlwpA"/>
@@ -114,7 +114,9 @@
       </connections>
       <connections xmi:type="process:SequenceFlow" xmi:id="_gtdawOxKEe2f3IEotPlwpA" name="isComplete" target="_gs5aEOxKEe2f3IEotPlwpA" source="_X6qvcOxKEe2f3IEotPlwpA" isDefault="true">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_gtdawexKEe2f3IEotPlwpA"/>
-        <condition xmi:type="expression:Expression" xmi:id="_gtdawuxKEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+        <condition xmi:type="expression:Expression" xmi:id="_gtdawuxKEe2f3IEotPlwpA" name="isCompleted" content="return request.completed;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean" returnTypeFixed="true">
+          <referencedElements xmi:type="process:BusinessObjectData" xmi:id="__tIbIOxOEe2f3IEotPlwpA" documentation="The request for approval." name="request" dataType="_ZsBDY-xIEe2f3IEotPlwpA" className="com.caracal.model.LeaveRequest"/>
+        </condition>
       </connections>
       <connections xmi:type="process:SequenceFlow" xmi:id="_rra9IOxKEe2f3IEotPlwpA" target="_rqFgYOxKEe2f3IEotPlwpA" source="_gs5aEOxKEe2f3IEotPlwpA">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_rrbkMOxKEe2f3IEotPlwpA"/>
@@ -167,7 +169,7 @@
           <children xmi:type="notation:DecorationNode" xmi:id="_ZsDfc-xIEe2f3IEotPlwpA" type="7002">
             <children xmi:type="notation:Shape" xmi:id="_ZsDfdOxIEe2f3IEotPlwpA" type="3005" element="_ZsBDNuxIEe2f3IEotPlwpA" fontName=".AppleSystemUIFont" fillColor="14334392" lineColor="10710316">
               <children xmi:type="notation:DecorationNode" xmi:id="_ZsDfdexIEe2f3IEotPlwpA" type="5005"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZsDfduxIEe2f3IEotPlwpA" x="160" y="60"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZsDfduxIEe2f3IEotPlwpA" x="160" y="60" width="120" height="60"/>
             </children>
             <children xmi:type="notation:Shape" xmi:id="_ZsDfd-xIEe2f3IEotPlwpA" type="3002" element="_ZsBDMuxIEe2f3IEotPlwpA" fontName=".AppleSystemUIFont">
               <children xmi:type="notation:DecorationNode" xmi:id="_ZsDfeOxIEe2f3IEotPlwpA" type="5024">
