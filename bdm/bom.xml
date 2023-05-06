@@ -16,10 +16,10 @@
                 <field type="LOCALDATE" length="255" name="endDate" nullable="true" collection="false">
                     <description>The last day of the leave.</description>
                 </field>
-                <field type="BOOLEAN" length="255" name="isComplete" nullable="true" collection="false">
+                <field type="BOOLEAN" length="255" name="completed" nullable="true" collection="false">
                     <description>The flag that specify that the information provided is complete.</description>
                 </field>
-                <field type="BOOLEAN" length="255" name="isApproved" nullable="true" collection="false">
+                <field type="BOOLEAN" length="255" name="approved" nullable="true" collection="false">
                     <description>The flag that specify that the leave is approved.</description>
                 </field>
             </fields>
