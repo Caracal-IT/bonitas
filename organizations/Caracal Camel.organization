@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<organization:Organization xmlns:organization="http://documentation.bonitasoft.com/organization-xml-schema/1.1" name="Caracal Camel" description="The labs to test new technologies.">
+  <customUserInfoDefinitions/>
+  <users/>
+  <roles>
+    <role name="Employee">
+      <displayName>Employee</displayName>
+      <description>No direct direct reportee.</description>
+    </role>
+    <role name="Manager">
+      <displayName>Manager</displayName>
+      <description>First level management.</description>
+    </role>
+  </roles>
+  <groups>
+    <group name="Caracal_Camel">
+      <displayName>Caracal Camel</displayName>
+      <description>The software factory company.</description>
+    </group>
+    <group name="Labs" parentPath="/Caracal_Camel">
+      <displayName>Labs</displayName>
+      <description>The research and development division.</description>
+    </group>
+    <group name="Software" parentPath="/Caracal_Camel/Labs">
+      <displayName>Software</displayName>
+      <description>The software research unit.</description>
+    </group>
+    <group name="Cloud" parentPath="/Caracal_Camel/Labs/Software">
+      <displayName>Cloud Technologies</displayName>
+      <description>The cloud technology research team.</description>
+    </group>
+  </groups>
+  <memberships/>
+</organization:Organization>
