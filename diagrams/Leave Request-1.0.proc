@@ -2,7 +2,7 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
   <process:MainProcess xmi:id="_Zr_OAOxIEe2f3IEotPlwpA" name="Leave Request" bonitaModelVersion="7.12.0-004">
     <elements xmi:type="process:Pool" xmi:id="_ZsBDMOxIEe2f3IEotPlwpA" name="Leave Approval Process">
-      <elements xmi:type="process:Lane" xmi:id="_ZsBDMexIEe2f3IEotPlwpA" name="Employee lane" actor="_ZsBDSuxIEe2f3IEotPlwpA">
+      <elements xmi:type="process:Lane" xmi:id="_ZsBDMexIEe2f3IEotPlwpA" name="Requestor">
         <elements xmi:type="process:StartEvent" xmi:id="_ZsBDMuxIEe2f3IEotPlwpA" name="Start1" outgoing="_ZsBDR-xIEe2f3IEotPlwpA">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_ZsBDM-xIEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_ZsBDNOxIEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
@@ -24,6 +24,7 @@
           <expectedDuration xmi:type="expression:Expression" xmi:id="_ZsBDQuxIEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
       </elements>
+      <elements xmi:type="process:Lane" xmi:id="_AuqYUOxJEe2f3IEotPlwpA" name="Manager"/>
       <formMapping xmi:type="process:FormMapping" xmi:id="_ZsBDQ-xIEe2f3IEotPlwpA">
         <targetForm xmi:type="expression:Expression" xmi:id="_ZsBDROxIEe2f3IEotPlwpA" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
       </formMapping>
@@ -34,7 +35,8 @@
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_ZsBDSOxIEe2f3IEotPlwpA"/>
         <condition xmi:type="expression:Expression" xmi:id="_ZsBDSexIEe2f3IEotPlwpA" name="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
       </connections>
-      <actors xmi:type="process:Actor" xmi:id="_ZsBDSuxIEe2f3IEotPlwpA" documentation="This is an example of actor that is mapped to any ACME users" name="Employee actor" initiator="true"/>
+      <actors xmi:type="process:Actor" xmi:id="_NCVwcOxJEe2f3IEotPlwpA" documentation="This is the person appplying for leave" name="Requestor Actor" initiator="true"/>
+      <actors xmi:type="process:Actor" xmi:id="_U1EF4OxJEe2f3IEotPlwpA" documentation="This is the manager that needs to approve the leave request" name="Manager Actor"/>
       <contract xmi:type="process:Contract" xmi:id="_ZsBDS-xIEe2f3IEotPlwpA"/>
       <searchIndexes xmi:type="process:SearchIndex" xmi:id="_ZsBDTOxIEe2f3IEotPlwpA">
         <name xmi:type="expression:Expression" xmi:id="_ZsBDTexIEe2f3IEotPlwpA" content="" returnTypeFixed="true"/>
@@ -89,7 +91,16 @@
           <styles xmi:type="notation:FontStyle" xmi:id="_ZsDffOxIEe2f3IEotPlwpA" fontName=".AppleSystemUIFont"/>
           <styles xmi:type="notation:LineStyle" xmi:id="_ZsDffexIEe2f3IEotPlwpA"/>
           <styles xmi:type="notation:FillStyle" xmi:id="_ZsDffuxIEe2f3IEotPlwpA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZsDff-xIEe2f3IEotPlwpA"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZsDff-xIEe2f3IEotPlwpA" x="44" y="10" width="1109" height="250"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_Au3MoOxJEe2f3IEotPlwpA" type="3007" element="_AuqYUOxJEe2f3IEotPlwpA">
+          <children xmi:type="notation:DecorationNode" xmi:id="_Au63AOxJEe2f3IEotPlwpA" type="5007"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_Au8sMOxJEe2f3IEotPlwpA" type="7002"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_Au3zsOxJEe2f3IEotPlwpA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_Au4awOxJEe2f3IEotPlwpA" fontName=".AppleSystemUIFont"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_Au4awexJEe2f3IEotPlwpA"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_Au96UOxJEe2f3IEotPlwpA"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Au4awuxJEe2f3IEotPlwpA" x="182" y="172"/>
         </children>
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_ZsDfgOxIEe2f3IEotPlwpA"/>
