@@ -70,5 +70,15 @@
       <groupName>Cloud</groupName>
       <groupParentPath>/Caracal_Camel/Labs/Software</groupParentPath>
     </membership>
+    <membership>
+      <userName>ettiene</userName>
+      <roleName>Employee</roleName>
+      <groupName>Caracal_Camel</groupName>
+    </membership>
+    <membership>
+      <userName>kate</userName>
+      <roleName>Manager</roleName>
+      <groupName>Caracal_Camel</groupName>
+    </membership>
   </memberships>
 </organization:Organization>

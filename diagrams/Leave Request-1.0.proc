@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actormapping="http://www.bonitasoft.org/ns/actormapping/6.0" xmlns:configuration="http://www.bonitasoft.org/ns/studio/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actormapping="http://www.bonitasoft.org/ns/actormapping/6.0" xmlns:configuration="http://www.bonitasoft.org/ns/studio/configuration" xmlns:connectorconfiguration="http://wwww.bonitasoft.org/model/connector/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
   <process:MainProcess xmi:id="_Zr_OAOxIEe2f3IEotPlwpA" name="Leave Request" bonitaModelVersion="7.12.0-004">
     <elements xmi:type="process:Pool" xmi:id="_ZsBDMOxIEe2f3IEotPlwpA" documentation="The process to request for leave" name="Leave Approval Process" displayName="Leave Approval Process">
       <elements xmi:type="process:Lane" xmi:id="_ZsBDMexIEe2f3IEotPlwpA" documentation="The actions the requestor needs to complete" name="Requestor" actor="_NCVwcOxJEe2f3IEotPlwpA">
@@ -8,7 +8,7 @@
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_ZsBDNOxIEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_ZsBDNexIEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:Task" xmi:id="_ZsBDNuxIEe2f3IEotPlwpA" documentation="Add the details for your leave." name="Request Leave" outgoing="_GjqAUOxKEe2f3IEotPlwpA" incoming="_ZsBDR-xIEe2f3IEotPlwpA" overrideActorsOfTheLane="false">
+        <elements xmi:type="process:Task" xmi:id="_ZsBDNuxIEe2f3IEotPlwpA" documentation="Add the details for your leave." name="Request Leave" outgoing="_GjqAUOxKEe2f3IEotPlwpA" incoming="_ZsBDR-xIEe2f3IEotPlwpA" actor="_NCVwcOxJEe2f3IEotPlwpA" overrideActorsOfTheLane="false">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_ZsBDN-xIEe2f3IEotPlwpA" name="Request Leave" content="Request Leave" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_ZsBDOOxIEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_ZsBDOexIEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
@@ -65,6 +65,13 @@
           <formMapping xmi:type="process:FormMapping" xmi:id="_ZsBDP-xIEe2f3IEotPlwpA">
             <targetForm xmi:type="expression:Expression" xmi:id="_LYIT8OyiEe2p0MsU94e_gA" name="RequestLeaveDetailsForm" content="92311ebc-4518-4a50-be3c-f4d966628630" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
+          <filters xmi:type="process:ActorFilter" xmi:id="_AydjgOynEe2p0MsU94e_gA" name="initiateRequestFilter" definitionId="bonita-actorfilter-initiator" definitionVersion="1.0">
+            <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_AyexoOynEe2p0MsU94e_gA" definitionId="bonita-actorfilter-initiator" version="1.0">
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_AyexoeynEe2p0MsU94e_gA" key="autoAssign">
+                <expression xmi:type="expression:Expression" xmi:id="_AyexouynEe2p0MsU94e_gA" name="true" content="true" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+              </parameters>
+            </configuration>
+          </filters>
           <contract xmi:type="process:Contract" xmi:id="_ZsBDQexIEe2f3IEotPlwpA">
             <inputs xmi:type="process:ContractInput" xmi:id="_kSMFIOyfEe2p0MsU94e_gA" name="requestInput" type="COMPLEX" dataReference="request">
               <inputs xmi:type="process:ContractInput" xmi:id="_kSMsMOyfEe2p0MsU94e_gA" name="description"/>
@@ -124,6 +131,13 @@
           <formMapping xmi:type="process:FormMapping" xmi:id="_cGWsyOxKEe2f3IEotPlwpA">
             <targetForm xmi:type="expression:Expression" xmi:id="_t6bYcOykEe2p0MsU94e_gA" name="ReviseLeaveRequest" content="b605e30d-7d02-45f5-b8a6-9952d57746f1" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
+          <filters xmi:type="process:ActorFilter" xmi:id="_k9qxcOynEe2p0MsU94e_gA" name="reviseRequestFilter" definitionId="bonita-actorfilter-same-task-user" definitionVersion="1.0.0">
+            <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_k9ub0OynEe2p0MsU94e_gA" definitionId="bonita-actorfilter-same-task-user" version="1.0.0">
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_k9vC4OynEe2p0MsU94e_gA" key="usertaskName">
+                <expression xmi:type="expression:Expression" xmi:id="_k9vp8OynEe2p0MsU94e_gA" name="Request Leave" content="Request Leave" returnTypeFixed="true"/>
+              </parameters>
+            </configuration>
+          </filters>
           <contract xmi:type="process:Contract" xmi:id="_cGWsx-xKEe2f3IEotPlwpA">
             <inputs xmi:type="process:ContractInput" xmi:id="_YsfbEOykEe2p0MsU94e_gA" name="requestInput" type="COMPLEX" dataReference="request" createMode="false">
               <inputs xmi:type="process:ContractInput" xmi:id="_YsfbEeykEe2p0MsU94e_gA" name="description" createMode="false"/>
@@ -150,6 +164,13 @@
           <formMapping xmi:type="process:FormMapping" xmi:id="_E7Qn6OyGEe2p0MsU94e_gA">
             <targetForm xmi:type="expression:Expression" xmi:id="_OqxpEOylEe2p0MsU94e_gA" name="CompleteLeaveRequestForm" content="c53fa3e1-f99b-4e3d-824b-7f804ea6836f" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
+          <filters xmi:type="process:ActorFilter" xmi:id="_sj_CkOynEe2p0MsU94e_gA" name="receiveResultsFilter" definitionId="bonita-actorfilter-initiator" definitionVersion="1.0">
+            <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_sj_poOynEe2p0MsU94e_gA" definitionId="bonita-actorfilter-initiator" version="1.0">
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_sj_poeynEe2p0MsU94e_gA" key="autoAssign">
+                <expression xmi:type="expression:Expression" xmi:id="_sj_pouynEe2p0MsU94e_gA" name="true" content="true" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+              </parameters>
+            </configuration>
+          </filters>
           <contract xmi:type="process:Contract" xmi:id="_E7Qn5-yGEe2p0MsU94e_gA">
             <inputs xmi:type="process:ContractInput" xmi:id="_MhfoYOylEe2p0MsU94e_gA" name="requestInput" type="COMPLEX" dataReference="request" createMode="false">
               <inputs xmi:type="process:ContractInput" xmi:id="_MhhdkOylEe2p0MsU94e_gA" name="description" createMode="false"/>
@@ -197,6 +218,13 @@
           <formMapping xmi:type="process:FormMapping" xmi:id="_QQ6v2exKEe2f3IEotPlwpA">
             <targetForm xmi:type="expression:Expression" xmi:id="_o7bkUOyjEe2p0MsU94e_gA" name="CheckAndApproveForm" content="ee7f82a4-09e2-4a28-b4e8-893bb239dc21" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
+          <filters xmi:type="process:ActorFilter" xmi:id="_oNtpEOyrEe2p0MsU94e_gA" name="approveFilter" definitionId="bonita-actorfilter-initiator-manager" definitionVersion="1.0">
+            <configuration xmi:type="connectorconfiguration:ConnectorConfiguration" xmi:id="_oNu3MOyrEe2p0MsU94e_gA" definitionId="bonita-actorfilter-initiator-manager" version="1.0">
+              <parameters xmi:type="connectorconfiguration:ConnectorParameter" xmi:id="_oNu3MeyrEe2p0MsU94e_gA" key="autoAssign">
+                <expression xmi:type="expression:Expression" xmi:id="_oNu3MuyrEe2p0MsU94e_gA" name="true" content="true" returnType="java.lang.Boolean" returnTypeFixed="true"/>
+              </parameters>
+            </configuration>
+          </filters>
           <contract xmi:type="process:Contract" xmi:id="_QQ6v2OxKEe2f3IEotPlwpA">
             <inputs xmi:type="process:ContractInput" xmi:id="_cBQM4OyjEe2p0MsU94e_gA" name="requestInput" type="COMPLEX" dataReference="request" createMode="false">
               <inputs xmi:type="process:ContractInput" xmi:id="_cBQM4eyjEe2p0MsU94e_gA" name="requestor" createMode="false"/>
@@ -243,14 +271,12 @@
       <connections xmi:type="process:SequenceFlow" xmi:id="_ZHiyQOxKEe2f3IEotPlwpA" name="notComplete" target="_cGUQgOxKEe2f3IEotPlwpA" source="_X6qvcOxKEe2f3IEotPlwpA">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_ZHiyQexKEe2f3IEotPlwpA"/>
         <condition xmi:type="expression:Expression" xmi:id="_ZHiyQuxKEe2f3IEotPlwpA" name="notCompleted" content="return !request.completed;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean" returnTypeFixed="true">
-          <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_sUoK0OxNEe2f3IEotPlwpA" documentation="The request for approval." name="request" dataType="_ZsBDY-xIEe2f3IEotPlwpA" className="com.caracal.model.LeaveRequest"/>
+          <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_4c7UkOypEe2p0MsU94e_gA" documentation="The request for approval." name="request" dataType="_ZsBDY-xIEe2f3IEotPlwpA" className="com.caracal.model.LeaveRequest"/>
         </condition>
       </connections>
       <connections xmi:type="process:SequenceFlow" xmi:id="_gtdawOxKEe2f3IEotPlwpA" name="isComplete" target="_E7G24OyGEe2p0MsU94e_gA" source="_X6qvcOxKEe2f3IEotPlwpA" isDefault="true">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_gtdawexKEe2f3IEotPlwpA"/>
-        <condition xmi:type="expression:Expression" xmi:id="_gtdawuxKEe2f3IEotPlwpA" name="isCompleted" content="return request.completed;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean" returnTypeFixed="true">
-          <referencedElements xmi:type="process:BusinessObjectData" xmi:id="__tIbIOxOEe2f3IEotPlwpA" documentation="The request for approval." name="request" dataType="_ZsBDY-xIEe2f3IEotPlwpA" className="com.caracal.model.LeaveRequest"/>
-        </condition>
+        <condition xmi:type="expression:Expression" xmi:id="_gtdawuxKEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
       </connections>
       <connections xmi:type="process:SequenceFlow" xmi:id="_rra9IOxKEe2f3IEotPlwpA" target="_rqFgYOxKEe2f3IEotPlwpA" source="_E7G24OyGEe2p0MsU94e_gA">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_rrbkMOxKEe2f3IEotPlwpA"/>
@@ -394,6 +420,7 @@
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_ZsDfiexIEe2f3IEotPlwpA" fontName=".AppleSystemUIFont"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZsDfiuxIEe2f3IEotPlwpA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Gk1nQOymEe2p0MsU94e_gA" id="(0.20833333333333334,0.4)"/>
     </edges>
     <edges xmi:type="notation:Connector" xmi:id="_GjrOcOxKEe2f3IEotPlwpA" type="4001" element="_GjqAUOxKEe2f3IEotPlwpA" source="_ZsDfdOxIEe2f3IEotPlwpA" target="_GjRl0OxKEe2f3IEotPlwpA" roundedBendpointsRadius="10" routing="Rectilinear">
       <children xmi:type="notation:DecorationNode" xmi:id="_GjrOc-xKEe2f3IEotPlwpA" type="6001">
