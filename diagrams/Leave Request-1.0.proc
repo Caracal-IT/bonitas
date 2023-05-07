@@ -1,49 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actormapping="http://www.bonitasoft.org/ns/actormapping/6.0" xmlns:configuration="http://www.bonitasoft.org/ns/studio/configuration" xmlns:decision="http://www.bonitasoft.org/ns/studio/process/decision" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:process="http://www.bonitasoft.org/ns/studio/process" xsi:schemaLocation="http://www.bonitasoft.org/ns/studio/process/decision http://www.bonitasoft.org/ns/studio/process#//decision">
   <process:MainProcess xmi:id="_Zr_OAOxIEe2f3IEotPlwpA" name="Leave Request" bonitaModelVersion="7.12.0-004">
     <elements xmi:type="process:Pool" xmi:id="_ZsBDMOxIEe2f3IEotPlwpA" documentation="The process to request for leave" name="Leave Approval Process" displayName="Leave Approval Process">
-      <elements xmi:type="process:Lane" xmi:id="_ZsBDMexIEe2f3IEotPlwpA" name="Requestor" actor="_NCVwcOxJEe2f3IEotPlwpA">
-        <elements xmi:type="process:StartEvent" xmi:id="_ZsBDMuxIEe2f3IEotPlwpA" name="Start1" outgoing="_ZsBDR-xIEe2f3IEotPlwpA">
+      <elements xmi:type="process:Lane" xmi:id="_ZsBDMexIEe2f3IEotPlwpA" documentation="The actions the requestor needs to complete" name="Requestor" actor="_NCVwcOxJEe2f3IEotPlwpA">
+        <elements xmi:type="process:StartEvent" xmi:id="_ZsBDMuxIEe2f3IEotPlwpA" documentation="Start the process to apply for leave." name="Start1" outgoing="_ZsBDR-xIEe2f3IEotPlwpA">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_ZsBDM-xIEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_ZsBDNOxIEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_ZsBDNexIEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:Task" xmi:id="_ZsBDNuxIEe2f3IEotPlwpA" name="Request Leave" outgoing="_GjqAUOxKEe2f3IEotPlwpA" incoming="_ZsBDR-xIEe2f3IEotPlwpA" overrideActorsOfTheLane="false">
+        <elements xmi:type="process:Task" xmi:id="_ZsBDNuxIEe2f3IEotPlwpA" documentation="Add the details for your leave." name="Request Leave" outgoing="_GjqAUOxKEe2f3IEotPlwpA" incoming="_ZsBDR-xIEe2f3IEotPlwpA" overrideActorsOfTheLane="false">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_ZsBDN-xIEe2f3IEotPlwpA" name="Request Leave" content="Request Leave" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_ZsBDOOxIEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_ZsBDOexIEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
+          <operations xmi:type="expression:Operation" xmi:id="_kSN6UOyfEe2p0MsU94e_gA">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_kSN6UeyfEe2p0MsU94e_gA" name="request" content="request" type="TYPE_VARIABLE" returnType="com.caracal.model.LeaveRequest">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_kSN6UuyfEe2p0MsU94e_gA" documentation="The request for approval." name="request" dataType="_ZsBDY-xIEe2f3IEotPlwpA" className="com.caracal.model.LeaveRequest"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_kSN6U-yfEe2p0MsU94e_gA" name="requestInput.description" content="requestInput?.description" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_kSN6VOyfEe2p0MsU94e_gA" name="requestInput" type="COMPLEX"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_kSN6VeyfEe2p0MsU94e_gA" type="JAVA_METHOD" expression="setDescription">
+              <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_kSOhYOyfEe2p0MsU94e_gA">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_kSOhYeyfEe2p0MsU94e_gA" name="request" content="request" type="TYPE_VARIABLE" returnType="com.caracal.model.LeaveRequest">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_kSOhYuyfEe2p0MsU94e_gA" documentation="The request for approval." name="request" dataType="_ZsBDY-xIEe2f3IEotPlwpA" className="com.caracal.model.LeaveRequest"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_kSOhY-yfEe2p0MsU94e_gA" name="requestInput.startDate" content="requestInput?.startDate" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.LocalDate">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_kSOhZOyfEe2p0MsU94e_gA" name="requestInput" type="COMPLEX"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_kSOhZeyfEe2p0MsU94e_gA" type="JAVA_METHOD" expression="setStartDate">
+              <inputTypes>java.time.LocalDate</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_kSOhZuyfEe2p0MsU94e_gA">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_kSOhZ-yfEe2p0MsU94e_gA" name="request" content="request" type="TYPE_VARIABLE" returnType="com.caracal.model.LeaveRequest">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_kSOhaOyfEe2p0MsU94e_gA" documentation="The request for approval." name="request" dataType="_ZsBDY-xIEe2f3IEotPlwpA" className="com.caracal.model.LeaveRequest"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_kSOhaeyfEe2p0MsU94e_gA" name="requestInput.endDate" content="requestInput?.endDate" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.LocalDate">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_kSOhauyfEe2p0MsU94e_gA" name="requestInput" type="COMPLEX"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_kSOha-yfEe2p0MsU94e_gA" type="JAVA_METHOD" expression="setEndDate">
+              <inputTypes>java.time.LocalDate</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_2rkQMOyfEe2p0MsU94e_gA">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_2rkQMeyfEe2p0MsU94e_gA" name="request" content="request" type="TYPE_VARIABLE" returnType="com.caracal.model.LeaveRequest">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_43lb0OyfEe2p0MsU94e_gA" documentation="The request for approval." name="request" dataType="_ZsBDY-xIEe2f3IEotPlwpA" className="com.caracal.model.LeaveRequest"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_2rkQMuyfEe2p0MsU94e_gA" name="setRequestorName" content="import org.bonitasoft.engine.identity.User&#xA;&#xA;long initiatorId = apiAccessor.getProcessAPI()&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  .getProcessInstance(processInstanceId)&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  .getStartedBy();&#xA;&#xA;User requestor =  apiAccessor.getIdentityAPI()&#xA;&#x9;&#x9;&#x9;&#x9;             .getUser(initiatorId);&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9; &#xA;return requestor.getFirstName() + &quot; &quot; + requestor.getLastName();" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="expression:Expression" xmi:id="_EyD-4OyiEe2p0MsU94e_gA" name="processInstanceId" content="processInstanceId" type="TYPE_ENGINE_CONSTANT" returnType="java.lang.Long"/>
+              <referencedElements xmi:type="expression:Expression" xmi:id="_EyD-4eyiEe2p0MsU94e_gA" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="org.bonitasoft.engine.api.APIAccessor"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_2rkQM-yfEe2p0MsU94e_gA" type="JAVA_METHOD" expression="setRequestor">
+              <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
           <loopCondition xmi:type="expression:Expression" xmi:id="_ZsBDOuxIEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_ZsBDO-xIEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <cardinalityExpression xmi:type="expression:Expression" xmi:id="_ZsBDPOxIEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_ZsBDPexIEe2f3IEotPlwpA" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_ZsBDPuxIEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <formMapping xmi:type="process:FormMapping" xmi:id="_ZsBDP-xIEe2f3IEotPlwpA">
-            <targetForm xmi:type="expression:Expression" xmi:id="_ZsBDQOxIEe2f3IEotPlwpA" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+            <targetForm xmi:type="expression:Expression" xmi:id="_LYIT8OyiEe2p0MsU94e_gA" name="RequestLeaveDetailsForm" content="92311ebc-4518-4a50-be3c-f4d966628630" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
-          <contract xmi:type="process:Contract" xmi:id="_ZsBDQexIEe2f3IEotPlwpA"/>
+          <contract xmi:type="process:Contract" xmi:id="_ZsBDQexIEe2f3IEotPlwpA">
+            <inputs xmi:type="process:ContractInput" xmi:id="_kSMFIOyfEe2p0MsU94e_gA" name="requestInput" type="COMPLEX" dataReference="request">
+              <inputs xmi:type="process:ContractInput" xmi:id="_kSMsMOyfEe2p0MsU94e_gA" name="description"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_kSMsMeyfEe2p0MsU94e_gA" name="startDate" type="LOCALDATE"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_kSNTQOyfEe2p0MsU94e_gA" name="endDate" type="LOCALDATE"/>
+            </inputs>
+          </contract>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_ZsBDQuxIEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:ANDGateway" xmi:id="_GjGmsOxKEe2f3IEotPlwpA" name="Merge" outgoing="_Ie9PYOxKEe2f3IEotPlwpA" incoming="_GjqAUOxKEe2f3IEotPlwpA _wf3jkOxKEe2f3IEotPlwpA">
+        <elements xmi:type="process:ANDGateway" xmi:id="_GjGmsOxKEe2f3IEotPlwpA" documentation="Send the request for approval" name="Merge" outgoing="_Ie9PYOxKEe2f3IEotPlwpA" incoming="_GjqAUOxKEe2f3IEotPlwpA _wf3jkOxKEe2f3IEotPlwpA">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_GjMGQexKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_GjMGQOxKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_GjMGQuxKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:Task" xmi:id="_cGUQgOxKEe2f3IEotPlwpA" name="Revise Request" outgoing="_wf3jkOxKEe2f3IEotPlwpA" incoming="_ZHiyQOxKEe2f3IEotPlwpA" overrideActorsOfTheLane="false">
+        <elements xmi:type="process:Task" xmi:id="_cGUQgOxKEe2f3IEotPlwpA" documentation="Cjange the details of the incomplete request" name="Revise Request" outgoing="_wf3jkOxKEe2f3IEotPlwpA" incoming="_ZHiyQOxKEe2f3IEotPlwpA" overrideActorsOfTheLane="false">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_ZHV98uxKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_ZHV98exKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_ZHV98-xKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
+          <operations xmi:type="expression:Operation" xmi:id="_YsgCIOykEe2p0MsU94e_gA">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_YsgCIeykEe2p0MsU94e_gA" name="request" content="request" type="TYPE_VARIABLE" returnType="com.caracal.model.LeaveRequest">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_YsgCIuykEe2p0MsU94e_gA" documentation="The request for approval." name="request" dataType="_ZsBDY-xIEe2f3IEotPlwpA" className="com.caracal.model.LeaveRequest"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_YsgCI-ykEe2p0MsU94e_gA" name="requestInput.description" content="requestInput?.description" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_YsgCJOykEe2p0MsU94e_gA" name="requestInput" type="COMPLEX" createMode="false"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_YsgCJeykEe2p0MsU94e_gA" type="JAVA_METHOD" expression="setDescription">
+              <inputTypes>java.lang.String</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_YsgCJuykEe2p0MsU94e_gA">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_YsgCJ-ykEe2p0MsU94e_gA" name="request" content="request" type="TYPE_VARIABLE" returnType="com.caracal.model.LeaveRequest">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_YsgCKOykEe2p0MsU94e_gA" documentation="The request for approval." name="request" dataType="_ZsBDY-xIEe2f3IEotPlwpA" className="com.caracal.model.LeaveRequest"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_YsgCKeykEe2p0MsU94e_gA" name="requestInput.startDate" content="requestInput?.startDate" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.LocalDate">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_YsgCKuykEe2p0MsU94e_gA" name="requestInput" type="COMPLEX" createMode="false"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_YsgCK-ykEe2p0MsU94e_gA" type="JAVA_METHOD" expression="setStartDate">
+              <inputTypes>java.time.LocalDate</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_YsgCLOykEe2p0MsU94e_gA">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_YsgCLeykEe2p0MsU94e_gA" name="request" content="request" type="TYPE_VARIABLE" returnType="com.caracal.model.LeaveRequest">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_YsgCLuykEe2p0MsU94e_gA" documentation="The request for approval." name="request" dataType="_ZsBDY-xIEe2f3IEotPlwpA" className="com.caracal.model.LeaveRequest"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_YsgCL-ykEe2p0MsU94e_gA" name="requestInput.endDate" content="requestInput?.endDate" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.time.LocalDate">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_YsgCMOykEe2p0MsU94e_gA" name="requestInput" type="COMPLEX" createMode="false"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_YsgCMeykEe2p0MsU94e_gA" type="JAVA_METHOD" expression="setEndDate">
+              <inputTypes>java.time.LocalDate</inputTypes>
+            </operator>
+          </operations>
           <loopCondition xmi:type="expression:Expression" xmi:id="_ZHV99OxKEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_ZHV99exKEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <cardinalityExpression xmi:type="expression:Expression" xmi:id="_ZHV99uxKEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_ZHV9-OxKEe2f3IEotPlwpA" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_ZHV99-xKEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <formMapping xmi:type="process:FormMapping" xmi:id="_cGWsyOxKEe2f3IEotPlwpA">
-            <targetForm xmi:type="expression:Expression" xmi:id="_cGWsyexKEe2f3IEotPlwpA" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+            <targetForm xmi:type="expression:Expression" xmi:id="_t6bYcOykEe2p0MsU94e_gA" name="ReviseLeaveRequest" content="b605e30d-7d02-45f5-b8a6-9952d57746f1" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
-          <contract xmi:type="process:Contract" xmi:id="_cGWsx-xKEe2f3IEotPlwpA"/>
+          <contract xmi:type="process:Contract" xmi:id="_cGWsx-xKEe2f3IEotPlwpA">
+            <inputs xmi:type="process:ContractInput" xmi:id="_YsfbEOykEe2p0MsU94e_gA" name="requestInput" type="COMPLEX" dataReference="request" createMode="false">
+              <inputs xmi:type="process:ContractInput" xmi:id="_YsfbEeykEe2p0MsU94e_gA" name="description" createMode="false"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_YsfbEuykEe2p0MsU94e_gA" name="startDate" type="LOCALDATE" createMode="false"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_YsfbE-ykEe2p0MsU94e_gA" name="endDate" type="LOCALDATE" createMode="false"/>
+            </inputs>
+          </contract>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_cGWsyuxKEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:ServiceTask" xmi:id="_gs5aEOxKEe2f3IEotPlwpA" name="Receive Results" outgoing="_rra9IOxKEe2f3IEotPlwpA" incoming="_gtdawOxKEe2f3IEotPlwpA">
+        <elements xmi:type="process:EndEvent" xmi:id="_rqFgYOxKEe2f3IEotPlwpA" documentation="The request is completed" name="End1" incoming="_rra9IOxKEe2f3IEotPlwpA">
+          <dynamicLabel xmi:type="expression:Expression" xmi:id="_rqXNMOxKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
+          <dynamicDescription xmi:type="expression:Expression" xmi:id="_rqWmIOxKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
+          <stepSummary xmi:type="expression:Expression" xmi:id="_rqXNMexKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
+        </elements>
+        <elements xmi:type="process:Task" xmi:id="_E7G24OyGEe2p0MsU94e_gA" documentation="Show the results of the request" name="Receive Results" outgoing="_rra9IOxKEe2f3IEotPlwpA" incoming="_gtdawOxKEe2f3IEotPlwpA" overrideActorsOfTheLane="false">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_gtAu0exKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_gtAu0OxKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_gtAu0uxKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
@@ -52,30 +147,69 @@
           <cardinalityExpression xmi:type="expression:Expression" xmi:id="_gtAu1exKEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_gtAu1-xKEe2f3IEotPlwpA" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_gtAu1uxKEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
-        </elements>
-        <elements xmi:type="process:EndEvent" xmi:id="_rqFgYOxKEe2f3IEotPlwpA" name="End1" incoming="_rra9IOxKEe2f3IEotPlwpA">
-          <dynamicLabel xmi:type="expression:Expression" xmi:id="_rqXNMOxKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
-          <dynamicDescription xmi:type="expression:Expression" xmi:id="_rqWmIOxKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
-          <stepSummary xmi:type="expression:Expression" xmi:id="_rqXNMexKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
+          <formMapping xmi:type="process:FormMapping" xmi:id="_E7Qn6OyGEe2p0MsU94e_gA">
+            <targetForm xmi:type="expression:Expression" xmi:id="_OqxpEOylEe2p0MsU94e_gA" name="CompleteLeaveRequestForm" content="c53fa3e1-f99b-4e3d-824b-7f804ea6836f" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+          </formMapping>
+          <contract xmi:type="process:Contract" xmi:id="_E7Qn5-yGEe2p0MsU94e_gA">
+            <inputs xmi:type="process:ContractInput" xmi:id="_MhfoYOylEe2p0MsU94e_gA" name="requestInput" type="COMPLEX" dataReference="request" createMode="false">
+              <inputs xmi:type="process:ContractInput" xmi:id="_MhhdkOylEe2p0MsU94e_gA" name="description" createMode="false"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_MhhdkeylEe2p0MsU94e_gA" name="startDate" type="LOCALDATE" createMode="false"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_MhhdkuylEe2p0MsU94e_gA" name="endDate" type="LOCALDATE" createMode="false"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_Mhhdk-ylEe2p0MsU94e_gA" name="completed" type="BOOLEAN" createMode="false"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_MhhdlOylEe2p0MsU94e_gA" name="approved" type="BOOLEAN" createMode="false"/>
+            </inputs>
+          </contract>
+          <expectedDuration xmi:type="expression:Expression" xmi:id="_E7R2AOyGEe2p0MsU94e_gA" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
       </elements>
-      <elements xmi:type="process:Lane" xmi:id="_AuqYUOxJEe2f3IEotPlwpA" name="Manager" actor="_U1EF4OxJEe2f3IEotPlwpA">
-        <elements xmi:type="process:Task" xmi:id="_QQ2eYOxKEe2f3IEotPlwpA" name="Accept And Approve" outgoing="_XPZk4OxKEe2f3IEotPlwpA" incoming="_Ie9PYOxKEe2f3IEotPlwpA" overrideActorsOfTheLane="false">
+      <elements xmi:type="process:Lane" xmi:id="_AuqYUOxJEe2f3IEotPlwpA" documentation="The actions the manager needs to complete" name="Manager" actor="_U1EF4OxJEe2f3IEotPlwpA">
+        <elements xmi:type="process:Task" xmi:id="_QQ2eYOxKEe2f3IEotPlwpA" documentation="Approve or reject the leave request" name="Check And Approve" outgoing="_XPZk4OxKEe2f3IEotPlwpA" incoming="_Ie9PYOxKEe2f3IEotPlwpA" overrideActorsOfTheLane="false">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_IeMaYOxKEe2f3IEotPlwpA" name="Accept And Appprove" content="Accept And Appprove" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_IeKlMOxKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_IeNBcOxKEe2f3IEotPlwpA" name="" content="" returnTypeFixed="true"/>
+          <operations xmi:type="expression:Operation" xmi:id="_cBQ0COyjEe2p0MsU94e_gA">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_cBQ0CeyjEe2p0MsU94e_gA" name="request" content="request" type="TYPE_VARIABLE" returnType="com.caracal.model.LeaveRequest">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_cBQ0CuyjEe2p0MsU94e_gA" documentation="The request for approval." name="request" dataType="_ZsBDY-xIEe2f3IEotPlwpA" className="com.caracal.model.LeaveRequest"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_cBQ0C-yjEe2p0MsU94e_gA" name="requestInput.completed" content="requestInput?.completed" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_cBQ0DOyjEe2p0MsU94e_gA" name="requestInput" type="COMPLEX" createMode="false"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_cBQ0DeyjEe2p0MsU94e_gA" type="JAVA_METHOD" expression="setCompleted">
+              <inputTypes>java.lang.Boolean</inputTypes>
+            </operator>
+          </operations>
+          <operations xmi:type="expression:Operation" xmi:id="_cBQ0DuyjEe2p0MsU94e_gA">
+            <leftOperand xmi:type="expression:Expression" xmi:id="_cBQ0D-yjEe2p0MsU94e_gA" name="request" content="request" type="TYPE_VARIABLE" returnType="com.caracal.model.LeaveRequest">
+              <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_cBQ0EOyjEe2p0MsU94e_gA" documentation="The request for approval." name="request" dataType="_ZsBDY-xIEe2f3IEotPlwpA" className="com.caracal.model.LeaveRequest"/>
+            </leftOperand>
+            <rightOperand xmi:type="expression:Expression" xmi:id="_cBQ0EeyjEe2p0MsU94e_gA" name="requestInput.approved" content="requestInput?.approved" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean">
+              <referencedElements xmi:type="process:ContractInput" xmi:id="_cBQ0EuyjEe2p0MsU94e_gA" name="requestInput" type="COMPLEX" createMode="false"/>
+            </rightOperand>
+            <operator xmi:type="expression:Operator" xmi:id="_cBQ0E-yjEe2p0MsU94e_gA" type="JAVA_METHOD" expression="setApproved">
+              <inputTypes>java.lang.Boolean</inputTypes>
+            </operator>
+          </operations>
           <loopCondition xmi:type="expression:Expression" xmi:id="_IeNBcexKEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <loopMaximum xmi:type="expression:Expression" xmi:id="_IeNBcuxKEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <cardinalityExpression xmi:type="expression:Expression" xmi:id="_IeNBc-xKEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Integer" returnTypeFixed="true"/>
           <iteratorExpression xmi:type="expression:Expression" xmi:id="_IeNBdexKEe2f3IEotPlwpA" name="multiInstanceIterator" content="multiInstanceIterator" type="MULTIINSTANCE_ITERATOR_TYPE" returnType="java.lang.Object" returnTypeFixed="true"/>
           <completionCondition xmi:type="expression:Expression" xmi:id="_IeNBdOxKEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
           <formMapping xmi:type="process:FormMapping" xmi:id="_QQ6v2exKEe2f3IEotPlwpA">
-            <targetForm xmi:type="expression:Expression" xmi:id="_QQ6v2uxKEe2f3IEotPlwpA" name="" content="" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
+            <targetForm xmi:type="expression:Expression" xmi:id="_o7bkUOyjEe2p0MsU94e_gA" name="CheckAndApproveForm" content="ee7f82a4-09e2-4a28-b4e8-893bb239dc21" type="FORM_REFERENCE_TYPE" returnTypeFixed="true"/>
           </formMapping>
-          <contract xmi:type="process:Contract" xmi:id="_QQ6v2OxKEe2f3IEotPlwpA"/>
+          <contract xmi:type="process:Contract" xmi:id="_QQ6v2OxKEe2f3IEotPlwpA">
+            <inputs xmi:type="process:ContractInput" xmi:id="_cBQM4OyjEe2p0MsU94e_gA" name="requestInput" type="COMPLEX" dataReference="request" createMode="false">
+              <inputs xmi:type="process:ContractInput" xmi:id="_cBQM4eyjEe2p0MsU94e_gA" name="requestor" createMode="false"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_cBQM4uyjEe2p0MsU94e_gA" name="description" createMode="false"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_cBQM4-yjEe2p0MsU94e_gA" name="startDate" type="LOCALDATE" createMode="false"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_cBQM5OyjEe2p0MsU94e_gA" name="endDate" type="LOCALDATE" createMode="false"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_cBQM5eyjEe2p0MsU94e_gA" name="completed" type="BOOLEAN" createMode="false"/>
+              <inputs xmi:type="process:ContractInput" xmi:id="_cBQM5uyjEe2p0MsU94e_gA" name="approved" type="BOOLEAN" createMode="false"/>
+            </inputs>
+          </contract>
           <expectedDuration xmi:type="expression:Expression" xmi:id="_QQ7W4OxKEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Long" returnTypeFixed="true"/>
         </elements>
-        <elements xmi:type="process:XORGateway" xmi:id="_X6qvcOxKEe2f3IEotPlwpA" name="Check Completed" outgoing="_ZHiyQOxKEe2f3IEotPlwpA _gtdawOxKEe2f3IEotPlwpA" incoming="_XPZk4OxKEe2f3IEotPlwpA">
+        <elements xmi:type="process:XORGateway" xmi:id="_X6qvcOxKEe2f3IEotPlwpA" documentation="Check if the request details are completed." name="Check Completed" outgoing="_ZHiyQOxKEe2f3IEotPlwpA _gtdawOxKEe2f3IEotPlwpA" incoming="_XPZk4OxKEe2f3IEotPlwpA">
           <dynamicLabel xmi:type="expression:Expression" xmi:id="_XPK7YOxKEe2f3IEotPlwpA" name="Check Completed" content="Check Completed" returnTypeFixed="true"/>
           <dynamicDescription xmi:type="expression:Expression" xmi:id="_XPKUUOxKEe2f3IEotPlwpA" name="Check Completed" content="Check Completed" returnTypeFixed="true"/>
           <stepSummary xmi:type="expression:Expression" xmi:id="_XPK7YexKEe2f3IEotPlwpA" name="Completed" content="Completed" returnTypeFixed="true"/>
@@ -112,13 +246,13 @@
           <referencedElements xmi:type="process:BusinessObjectData" xmi:id="_sUoK0OxNEe2f3IEotPlwpA" documentation="The request for approval." name="request" dataType="_ZsBDY-xIEe2f3IEotPlwpA" className="com.caracal.model.LeaveRequest"/>
         </condition>
       </connections>
-      <connections xmi:type="process:SequenceFlow" xmi:id="_gtdawOxKEe2f3IEotPlwpA" name="isComplete" target="_gs5aEOxKEe2f3IEotPlwpA" source="_X6qvcOxKEe2f3IEotPlwpA" isDefault="true">
+      <connections xmi:type="process:SequenceFlow" xmi:id="_gtdawOxKEe2f3IEotPlwpA" name="isComplete" target="_E7G24OyGEe2p0MsU94e_gA" source="_X6qvcOxKEe2f3IEotPlwpA" isDefault="true">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_gtdawexKEe2f3IEotPlwpA"/>
         <condition xmi:type="expression:Expression" xmi:id="_gtdawuxKEe2f3IEotPlwpA" name="isCompleted" content="return request.completed;" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Boolean" returnTypeFixed="true">
           <referencedElements xmi:type="process:BusinessObjectData" xmi:id="__tIbIOxOEe2f3IEotPlwpA" documentation="The request for approval." name="request" dataType="_ZsBDY-xIEe2f3IEotPlwpA" className="com.caracal.model.LeaveRequest"/>
         </condition>
       </connections>
-      <connections xmi:type="process:SequenceFlow" xmi:id="_rra9IOxKEe2f3IEotPlwpA" target="_rqFgYOxKEe2f3IEotPlwpA" source="_gs5aEOxKEe2f3IEotPlwpA">
+      <connections xmi:type="process:SequenceFlow" xmi:id="_rra9IOxKEe2f3IEotPlwpA" target="_rqFgYOxKEe2f3IEotPlwpA" source="_E7G24OyGEe2p0MsU94e_gA">
         <decisionTable xmi:type="decision:DecisionTable" xmi:id="_rrbkMOxKEe2f3IEotPlwpA"/>
         <condition xmi:type="expression:Expression" xmi:id="_rrbkMexKEe2f3IEotPlwpA" name="" content="" returnType="java.lang.Boolean" returnTypeFixed="true"/>
       </connections>
@@ -128,6 +262,28 @@
       </connections>
       <actors xmi:type="process:Actor" xmi:id="_NCVwcOxJEe2f3IEotPlwpA" documentation="This is the person appplying for leave" name="Requestor Actor" initiator="true"/>
       <actors xmi:type="process:Actor" xmi:id="_U1EF4OxJEe2f3IEotPlwpA" documentation="This is the manager that needs to approve the leave request" name="Manager Actor"/>
+      <configurations xmi:type="configuration:Configuration" xmi:id="_DxzDEOxSEe2f3IEotPlwpA" name="Development" version="7.12.0-004" username="ettiene">
+        <actorMappings xmi:type="actormapping:ActorMappingsType" xmi:id="_Dx37kOxSEe2f3IEotPlwpA">
+          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_Dx4ioOxSEe2f3IEotPlwpA" name="Requestor Actor">
+            <groups xmi:type="actormapping:Groups" xmi:id="_Dx4ioexSEe2f3IEotPlwpA"/>
+            <memberships xmi:type="actormapping:Membership" xmi:id="_Dx4iouxSEe2f3IEotPlwpA"/>
+            <roles xmi:type="actormapping:Roles" xmi:id="_Dx4io-xSEe2f3IEotPlwpA"/>
+            <users xmi:type="actormapping:Users" xmi:id="_Dx4ipOxSEe2f3IEotPlwpA"/>
+          </actorMapping>
+          <actorMapping xmi:type="actormapping:ActorMapping" xmi:id="_Dx4ipexSEe2f3IEotPlwpA" name="Manager Actor">
+            <groups xmi:type="actormapping:Groups" xmi:id="_Dx4ipuxSEe2f3IEotPlwpA"/>
+            <memberships xmi:type="actormapping:Membership" xmi:id="_Dx4ip-xSEe2f3IEotPlwpA"/>
+            <roles xmi:type="actormapping:Roles" xmi:id="_Dx4iqOxSEe2f3IEotPlwpA"/>
+            <users xmi:type="actormapping:Users" xmi:id="_Dx4iqexSEe2f3IEotPlwpA"/>
+          </actorMapping>
+        </actorMappings>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_DxzqIOxSEe2f3IEotPlwpA" id="CONNECTOR"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_DxzqIexSEe2f3IEotPlwpA" id="GROOVY_SCRIPT"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_DxzqIuxSEe2f3IEotPlwpA" id="ACTOR_FILTER"/>
+        <processDependencies xmi:type="configuration:FragmentContainer" xmi:id="_DxzqI-xSEe2f3IEotPlwpA" id="OTHER"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_DxzqJOxSEe2f3IEotPlwpA" id="GROOVY_SCRIPT"/>
+        <applicationDependencies xmi:type="configuration:FragmentContainer" xmi:id="_DxzqJexSEe2f3IEotPlwpA" id="OTHER"/>
+      </configurations>
       <contract xmi:type="process:Contract" xmi:id="_ZsBDS-xIEe2f3IEotPlwpA"/>
       <searchIndexes xmi:type="process:SearchIndex" xmi:id="_ZsBDTOxIEe2f3IEotPlwpA">
         <name xmi:type="expression:Expression" xmi:id="_ZsBDTexIEe2f3IEotPlwpA" content="" returnTypeFixed="true"/>
@@ -187,15 +343,15 @@
               <children xmi:type="notation:DecorationNode" xmi:id="_cGZJAOxKEe2f3IEotPlwpA" type="5005"/>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cGYh8exKEe2f3IEotPlwpA" x="415" y="94" width="100" height="50"/>
             </children>
-            <children xmi:type="notation:Shape" xmi:id="_gtNjIOxKEe2f3IEotPlwpA" type="3027" element="_gs5aEOxKEe2f3IEotPlwpA" fontName=".AppleSystemUIFont" fillColor="14334392" lineColor="10710316">
-              <children xmi:type="notation:DecorationNode" xmi:id="_gtOKMexKEe2f3IEotPlwpA" type="5017"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gtOKMOxKEe2f3IEotPlwpA" x="656" y="98"/>
-            </children>
             <children xmi:type="notation:Shape" xmi:id="_rqphEOxKEe2f3IEotPlwpA" type="3003" element="_rqFgYOxKEe2f3IEotPlwpA" fontName=".AppleSystemUIFont">
               <children xmi:type="notation:DecorationNode" xmi:id="_rqrWQOxKEe2f3IEotPlwpA" type="5025">
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_rqrWQexKEe2f3IEotPlwpA" y="5"/>
               </children>
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rqphEexKEe2f3IEotPlwpA" x="861" y="110"/>
+            </children>
+            <children xmi:type="notation:Shape" xmi:id="_E7c1IOyGEe2p0MsU94e_gA" type="3005" element="_E7G24OyGEe2p0MsU94e_gA" fontName=".AppleSystemUIFont" fillColor="14334392" lineColor="10710316">
+              <children xmi:type="notation:DecorationNode" xmi:id="_E7htoOyGEe2p0MsU94e_gA" type="5005"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_E7dcMOyGEe2p0MsU94e_gA" x="656" y="98" width="100" height="50"/>
             </children>
           </children>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_ZsDfe-xIEe2f3IEotPlwpA"/>
@@ -215,7 +371,7 @@
               <children xmi:type="notation:DecorationNode" xmi:id="_X6tywOxKEe2f3IEotPlwpA" type="5026">
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_X6uZ0OxKEe2f3IEotPlwpA" y="5"/>
               </children>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X6skouxKEe2f3IEotPlwpA" x="443" y="67" width="43" height="43"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X6skouxKEe2f3IEotPlwpA" x="443" y="80" width="43" height="43"/>
             </children>
           </children>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_Au3zsOxJEe2f3IEotPlwpA"/>
@@ -261,6 +417,7 @@
       </children>
       <styles xmi:type="notation:FontStyle" xmi:id="_XPaL8-xKEe2f3IEotPlwpA" fontName=".AppleSystemUIFont"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XPaL9OxKEe2f3IEotPlwpA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Nmt8IOyGEe2p0MsU94e_gA" id="(0.16279069767441862,0.46511627906976744)"/>
     </edges>
     <edges xmi:type="notation:Connector" xmi:id="_ZHl1kOxKEe2f3IEotPlwpA" type="4001" element="_ZHiyQOxKEe2f3IEotPlwpA" source="_X6skoexKEe2f3IEotPlwpA" target="_cGYh8OxKEe2f3IEotPlwpA" roundedBendpointsRadius="10" routing="Rectilinear">
       <children xmi:type="notation:DecorationNode" xmi:id="_ZHl1k-xKEe2f3IEotPlwpA" type="6001">
@@ -270,7 +427,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZHl1kuxKEe2f3IEotPlwpA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_291FgOxKEe2f3IEotPlwpA" id="(0.5116279069767442,0.023255813953488372)"/>
     </edges>
-    <edges xmi:type="notation:Connector" xmi:id="_gtuggOxKEe2f3IEotPlwpA" type="4001" element="_gtdawOxKEe2f3IEotPlwpA" source="_X6skoexKEe2f3IEotPlwpA" target="_gtNjIOxKEe2f3IEotPlwpA" roundedBendpointsRadius="10" routing="Rectilinear">
+    <edges xmi:type="notation:Connector" xmi:id="_gtuggOxKEe2f3IEotPlwpA" type="4001" element="_gtdawOxKEe2f3IEotPlwpA" source="_X6skoexKEe2f3IEotPlwpA" target="_E7c1IOyGEe2p0MsU94e_gA" roundedBendpointsRadius="10" routing="Rectilinear">
       <children xmi:type="notation:DecorationNode" xmi:id="_gtvHkOxKEe2f3IEotPlwpA" type="6001">
         <layoutConstraint xmi:type="notation:Location" xmi:id="_gtvHkexKEe2f3IEotPlwpA" x="-72" y="-9"/>
       </children>
@@ -278,7 +435,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_gtugguxKEe2f3IEotPlwpA" points="[0, 0, 0, 0]$[0, 0, 0, 0]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_2FOCgOxKEe2f3IEotPlwpA" id="(0.9069767441860465,0.5348837209302325)"/>
     </edges>
-    <edges xmi:type="notation:Connector" xmi:id="_rrcLQOxKEe2f3IEotPlwpA" type="4001" element="_rra9IOxKEe2f3IEotPlwpA" source="_gtNjIOxKEe2f3IEotPlwpA" target="_rqphEOxKEe2f3IEotPlwpA" roundedBendpointsRadius="10" routing="Rectilinear">
+    <edges xmi:type="notation:Connector" xmi:id="_rrcLQOxKEe2f3IEotPlwpA" type="4001" element="_rra9IOxKEe2f3IEotPlwpA" source="_E7c1IOyGEe2p0MsU94e_gA" target="_rqphEOxKEe2f3IEotPlwpA" roundedBendpointsRadius="10" routing="Rectilinear">
       <children xmi:type="notation:DecorationNode" xmi:id="_rrcyUuxKEe2f3IEotPlwpA" type="6001">
         <layoutConstraint xmi:type="notation:Location" xmi:id="_rrcyU-xKEe2f3IEotPlwpA" y="-10"/>
       </children>
